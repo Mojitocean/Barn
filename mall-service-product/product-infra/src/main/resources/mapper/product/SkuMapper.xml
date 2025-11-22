@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.barn.product.infra.mapper.SkuMapper">
+
+    <resultMap id="BaseResultMap" type="com.barn.product.domain.entity.Sku">
+        <id column="id" property="id"/>
+        <result column="spu_id" property="spuId"/>
+        <result column="sku_code" property="skuCode"/>
+        <result column="spu_name" property="skuName"/>
+        <result column="price" property="price"/>
+        <result column="stock" property="stock"/>
+        <result column="spec_json" property="specJson"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT *
+        FROM pms_sku
+        WHERE id = #{id}
+    </select>
+
+    <!-- 核心 SQL：防止超卖的关键 -->
+    <update id="decreaseStock">
+        UPDATE pms_sku
+        SET stock = stock - #{count}
+        WHERE id = #{id}
+          AND stock >= #{count}
+    </update>
+
+</mapper>

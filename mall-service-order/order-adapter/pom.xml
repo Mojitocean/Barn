@@ -13,5 +13,32 @@
     <packaging>jar</packaging>
     <description>[用户服务 Dubbo 接口]</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.barn</groupId>
+            <artifactId>common-core</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.barn</groupId>
+            <artifactId>common-dubbo</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.barn</groupId>
+            <artifactId>api-order</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.barn</groupId>
+            <artifactId>order-app</artifactId>
+            <version>${revision}</version>
+        </dependency>
+    </dependencies>
 
 </project>

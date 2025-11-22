@@ -16,7 +16,6 @@
     <modules>
         <module>product-domain</module>
         <module>product-infra</module>
-        <module>product-app</module>
         <module>product-start</module>
         <module>product-adapter</module>
     </modules>

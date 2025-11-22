@@ -1,3 +1,15 @@
+# 默认忽略的文件
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+/compiler.xml
+/encodings.xml
+/jarRepositories.xml
+/misc.xml
+/vcs.xml
+
 # maven ignore
 target/
 *.jar
@@ -28,8 +40,6 @@ buildNumber.properties
 *.ipr
 *.iml
 *.iws
-
-
 
 # temp ignore
 *.log

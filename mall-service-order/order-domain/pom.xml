@@ -20,5 +20,10 @@
             <artifactId>lombok</artifactId>
             <optional>false</optional>
         </dependency>
+        <dependency>
+            <groupId>com.barn</groupId>
+            <artifactId>common-core</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
 </project>

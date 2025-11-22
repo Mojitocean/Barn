@@ -13,5 +13,18 @@
     <packaging>jar</packaging>
     <description>[订单服务 Dubbo 接口、DTO、Enum]</description>
 
+    <dependencies>
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.barn</groupId>
+            <artifactId>common-core</artifactId>
+            <version>${revision}</version>
+        </dependency>
+    </dependencies>
 
 </project>
