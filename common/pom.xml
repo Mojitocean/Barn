@@ -14,10 +14,10 @@
     <description>[公共通用层：工具类、全局异常、Base实体] </description>
 
     <modules>
-<!--        <module>common-core</module>-->
-<!--        <module>common-dubbo</module>-->
-<!--        <module>common-pom</module>-->
-<!--        <module>common-redis</module>-->
+        <module>common-core</module>
+        <module>common-dubbo</module>
+        <module>common-redis</module>
+        <module>common-monitor</module>
     </modules>
 
 </project>
