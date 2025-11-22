@@ -1,4 +1,4 @@
-package com.barn.core.auth;
+package src.main.java.com.barn.auth;
 
 
 import java.lang.annotation.ElementType;

@@ -1,10 +1,12 @@
-package com.barn.core.service;
+package com.barn.oss.service;
 
-import com.barn.core.config.OssConfig;
-import com.barn.core.domain.Attachment;
+
 import com.barn.core.exception.ServerException;
 import com.barn.core.utils.DateUtil;
 import com.barn.core.utils.IdGenUtil;
+import com.barn.core.utils.StringUtil;
+import com.barn.oss.config.OssConfig;
+import com.barn.oss.domain.Attachment;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
@@ -16,14 +18,14 @@ import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.S3Configuration;
-import software.amazon.awssdk.services.s3.model.*;
+import software.amazon.awssdk.services.s3.model.GetObjectRequest;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * packageName com.barn.core.service
@@ -41,8 +43,6 @@ public class OssTemplate implements InitializingBean {
     private static final long PART_SIZE = 100 * 1024 * 1024; // 100MB
     private final OssConfig config;
     // 模拟缓存：可替换为 Redis 或数据库持久化
-    private final Map<String, String> uploadIdCache = new ConcurrentHashMap<>();
-    private final Map<String, Set<Integer>> uploadedPartCache = new ConcurrentHashMap<>();
     private String bucketName;
     private S3Client s3Client;
 
@@ -70,9 +70,7 @@ public class OssTemplate implements InitializingBean {
      * @return
      */
     public boolean checkFileSuffix(String suffix) {
-        return StringUtils.isNotBlank(suffix)
-                ? Arrays.stream(config.getSuffix()).noneMatch(suffix.toLowerCase()::endsWith)
-                : false;
+        return StringUtil.isNotBlank(suffix) && Arrays.stream(config.getSuffix()).noneMatch(suffix.toLowerCase()::endsWith);
     }
 
     /**
@@ -124,25 +122,12 @@ public class OssTemplate implements InitializingBean {
     }
 
     /**
-     * 拷贝数组
-     *
-     * @param source
-     * @param length
-     * @return
-     */
-    private byte[] copyOf(byte[] source, int length) {
-        byte[] result = new byte[length];
-        System.arraycopy(source, 0, result, 0, length);
-        return result;
-    }
-
-    /**
      * 生成对象Key
      */
     private String generateObjectKey(MultipartFile file) {
         String originalFilename = file.getOriginalFilename();
         String ext = "";
-        if (StringUtils.isNotBlank(originalFilename) && originalFilename.contains(".")) {
+        if (StringUtil.isNotBlank(originalFilename) && originalFilename.contains(".")) {
             ext = "." + StringUtils.substringAfterLast(originalFilename, ".");
         }
         return IdGenUtil.nextIdStr() + ext;

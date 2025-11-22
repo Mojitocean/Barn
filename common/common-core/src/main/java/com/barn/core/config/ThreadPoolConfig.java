@@ -1,7 +1,6 @@
 package com.barn.core.config;
 
 
-import com.barn.core.utils.ThreadUtil;
 import jakarta.annotation.PreDestroy;
 import lombok.extern.log4j.Log4j2;
 import org.jetbrains.annotations.NotNull;
@@ -480,7 +479,7 @@ public class ThreadPoolConfig {
         // 关闭通用任务线程池
         if (taskExecutorService != null) {
             try {
-                ThreadUtil.shutdownAndAwaitTermination(taskExecutorService);
+//                ThreadUtil.shutdownAndAwaitTermination(taskExecutorService);
                 log.info("TaskExecutorService shutdown completed");
             } catch (Exception e) {
                 log.error("Failed to shutdown TaskExecutorService: {}", e.getMessage(), e);

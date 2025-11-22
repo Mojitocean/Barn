@@ -18,6 +18,8 @@
         <module>common-dubbo</module>
         <module>common-redis</module>
         <module>common-monitor</module>
+        <module>common-auth</module>
+        <module>common-oss</module>
     </modules>
 
 </project>

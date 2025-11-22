@@ -1,5 +1,6 @@
-package com.barn.core.domain;
+package com.barn.oss.domain;
 
+import com.barn.core.domain.BaseEntity;
 import lombok.Data;
 
 import java.io.Serializable;

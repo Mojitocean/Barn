@@ -1,4 +1,4 @@
-package com.barn.core.auth;
+package src.main.java.com.barn.auth;
 
 import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Configuration;

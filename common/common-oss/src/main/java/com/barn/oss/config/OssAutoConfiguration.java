@@ -1,6 +1,6 @@
-package com.barn.core.config;
+package com.barn.oss.config;
 
-import com.barn.core.service.OssTemplate;
+import com.barn.oss.service.OssTemplate;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

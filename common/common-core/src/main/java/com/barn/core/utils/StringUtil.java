@@ -3,9 +3,7 @@ package com.barn.core.utils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
-
-import java.util.HashMap;
-import java.util.Map;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * packageName com.barn.core.utils
@@ -23,6 +21,7 @@ public class StringUtil extends StringUtils {
      * @param input 原始字符串
      * @return 返回符号前的子串，不包含符号，如果未找到特殊符号则返回原字符串
      */
+    @NotNull
     public static String substringFirst(String input, String symbol) {
         if (input == null || input.isEmpty()) {
             return "";
@@ -40,6 +39,7 @@ public class StringUtil extends StringUtils {
      * @param input 原始字符串
      * @return 返回符号后的子串，包含符号，如果未找到特殊符号则返回空字符串
      */
+    @NotNull
     public static String substringLast(String input, String symbol) {
         if (input == null || input.isEmpty()) {
             return "";
@@ -48,7 +48,7 @@ public class StringUtil extends StringUtils {
         if (index == -1 || index == 0 || index == input.length() - 1) {
             return "";
         }
-        return input.substring(index, input.length());
+        return input.substring(index);
     }
 
     /**
@@ -57,6 +57,7 @@ public class StringUtil extends StringUtils {
      * @param input 原始字符串
      * @return 返回符号后的子串，包含符号，如果未找到特殊符号则返回空字符串
      */
+    @NotNull
     public static String substringLast2(String input, String symbol) {
         if (input == null || input.isEmpty()) {
             return "";
@@ -65,7 +66,7 @@ public class StringUtil extends StringUtils {
         if (index == -1 || index == 0 || index == input.length() - 1) {
             return "";
         }
-        return input.substring(index + 1, input.length());
+        return input.substring(index + 1);
     }
 
 

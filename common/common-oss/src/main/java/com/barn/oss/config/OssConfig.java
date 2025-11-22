@@ -1,4 +1,4 @@
-package com.barn.core.config;
+package com.barn.oss.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

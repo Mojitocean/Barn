@@ -6,7 +6,6 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-
 /**
  * packageName com.barn.core.domain
  *
