@@ -1,29 +1,24 @@
 package com.barn.product.domain.service;
 
-/**
- * packageName com.barn.order.domain.service
- *
- * @author mj
- * @className StockDomainService
- * @date 2025/11/22
- * @description TODO
- */
-
 import com.barn.core.exception.ServerException;
 import com.barn.product.domain.entity.Sku;
 import com.barn.product.domain.repo.ProductRepository;
-import lombok.extern.log4j.Log4j2;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 /**
+ * packageName com.barn.order.domain.service
+ * <p>
  * 【领域服务】库存服务
  * 处理跨实体的复杂逻辑，例如批量扣减库存
+ *
+ * @author mj
+ * @className StockDomainService
+ * @date 2025/11/22
+ * @description TODO
  */
-@Log4j2
 @Service
 public class StockDomainService {
 

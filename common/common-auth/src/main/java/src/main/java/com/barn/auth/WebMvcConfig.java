@@ -1,4 +1,4 @@
-package src.main.java.com.barn.auth;
+package com.barn.auth;
 
 import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebMvcConfig implements WebMvcConfigurer {
 
     @Resource
-    private AuthInterceptor authInterceptor;
+    private src.main.java.com.barn.auth.AuthInterceptor authInterceptor;
 
     /**
      * 添加拦截器到Spring MVC配置中

@@ -20,6 +20,7 @@
         <module>common-monitor</module>
         <module>common-auth</module>
         <module>common-oss</module>
+        <module>common-pom</module>
     </modules>
 
 </project>

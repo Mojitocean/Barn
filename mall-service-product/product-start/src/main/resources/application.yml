@@ -1,0 +1,65 @@
+# 基础配置
+spring:
+  profiles:
+    # 环境配置
+    active: @profiles.active@
+  cloud:
+    nacos:
+      username: @nacos.username@
+      password: @nacos.password@
+      server-addr: @nacos.server@
+      discovery:
+        group: @nacos.discovery.group@
+        namespace: @nacos.discovery.namespace@
+      config:
+        file-extension: yml
+        group: @nacos.config.group@
+        namespace: @nacos.config.namespace@
+  #导入额外配置
+  config:
+    import:
+      - optional:nacos:common
+      - optional:nacos:mall-product
+
+# dubbo配置
+dubbo:
+  # 基础配置
+  application:
+    name: product-service  # Dubbo应用名称
+    qos-enable: false                 # 关闭QoS服务，减少不必要的端口占用
+    qos-port: 22222                   # 如果开启QoS，指定端口
+    register-mode: instance           # 只注册应用级服务，不注册接口级服务
+    serialize-check-status: WARN      # 将序列化检查模式从STRICT改为WARN
+  # 注册中心
+  registry:
+    address: nacos://${spring.cloud.nacos.server-addr}           # Nacos地址
+    register-mode: instance           # 只注册应用级服务，不注册接口级服务
+    parameters:
+      namespace: ${spring.cloud.nacos.discovery.namespace}       # 命名空间
+      username: ${spring.cloud.nacos.username}                   # Nacos用户名
+      password: ${spring.cloud.nacos.password}                   # Nacos密码
+      check: false                                               # 不检查注册中心是否可用避免启动失败
+  # 协议
+  protocol:
+    name: tri
+    port: -1                     # 随机端口，避免冲突
+    core-threads: 200            # 业务线程池核心数
+    threads: 500                 # 最大线程数
+    iothreads: 32                # IO线程数（建议=CPU核数*2）
+    accepts: 1000
+  # 提供者
+  provider:
+    timeout: 5000               # 远程服务调用超时时间(毫秒)
+    retries: 2                  # 远程服务调用重试次数
+    serialization: hessian2     # 序列化方式（适合java，实际上protobuf效率更高且可以跨语言）
+    filter: -exception          # 过滤异常
+  #    delay: -1                   # 服务延迟注册，-1表示Spring容器初始化完成后注册
+  #    version: 1.0.0              # 服务版本
+  #    group: dev                  # 服务分组
+
+  # 元数据中心
+  metadata-report:
+    address: nacos://${spring.cloud.nacos.server-addr}           # 元数据地址
+    namespace: ${spring.cloud.nacos.discovery.namespace}         # 命名空间
+    username: ${spring.cloud.nacos.username}                     # Nacos用户名
+    password: ${spring.cloud.nacos.password}                     # Nacos密码

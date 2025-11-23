@@ -1,6 +1,6 @@
 package com.barn.order.app.service;
 
-import com.api.order.dto.OrderCreateDTO;
+import com.api.barn.order.dto.OrderCreateDTO;
 import com.barn.api.product.dto.SkuInfoDTO;
 import com.barn.api.product.dto.StockDeductionDTO;
 import com.barn.api.product.service.ProductServiceApi;

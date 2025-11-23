@@ -1,7 +1,7 @@
 package com.barn.order.adapter.rpc;
 
-import com.api.order.dto.OrderCreateDTO;
-import com.api.order.service.OrderServiceApi;
+import com.api.barn.order.dto.OrderCreateDTO;
+import com.api.barn.order.service.OrderServiceApi;
 import com.barn.core.domain.R;
 import com.barn.order.app.service.OrderAppService;
 import org.apache.dubbo.config.annotation.DubboService;

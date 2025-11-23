@@ -15,11 +15,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring-boot.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.barn</groupId>
             <artifactId>order-adapter</artifactId>
             <version>${revision}</version>
@@ -27,6 +22,16 @@
         <dependency>
             <groupId>com.barn</groupId>
             <artifactId>order-infra</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.barn</groupId>
+            <artifactId>common-pom</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.barn</groupId>
+            <artifactId>common-dubbo</artifactId>
             <version>${revision}</version>
         </dependency>
     </dependencies>

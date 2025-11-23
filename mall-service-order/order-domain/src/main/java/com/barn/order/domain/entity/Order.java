@@ -15,7 +15,8 @@ import java.util.UUID;
 
 /**
  * packageName com.barn.order.domain.entity
- * 【聚合根】订单实体 (Order Aggregate Root)
+ * 聚合根】订单实体 (Order Aggregate Root)
+ * 仅开放 Getter，禁止外部直接 Set 属性，必须通过业务方法修改状态
  * * DDD 原则：
  * 1. 实体包含业务逻辑 (充血模型)。
  * 2. 只有聚合根可以直接被 Repository 保存。
@@ -26,8 +27,7 @@ import java.util.UUID;
  * @date 2025/11/22
  * @description TODO
  */
-@Getter // 仅开放 Getter，禁止外部直接 Set 属性，必须通过业务方法修改状态
-@Log4j2
+@Getter
 @NoArgsConstructor
 public class Order {
 
