@@ -81,7 +81,7 @@ public class OrderAppService {
             R<SkuInfoDTO> skuResult = productServiceApi.getSkuInfo(skuId);
 
             // RPC 调用结果校验
-            if (skuResult == null || skuResult.getCode() != R.FAIL || skuResult.getData() == null) {
+            if (skuResult == null || skuResult.getCode() == R.FAIL || skuResult.getData() == null) {
                 log.error("调用商品服务查询SKU失败: skuId={}, result={}", skuId, skuResult);
                 throw new ServerException("商品信息不存在或服务异常: " + skuId);
             }
@@ -117,7 +117,7 @@ public class OrderAppService {
         // 如果这里失败，抛出异常，Spring 事务管理器会回滚整个 createOrder 方法
         R<Boolean> deductResult = productServiceApi.deductStock(deductionList);
 
-        if (deductResult == null || deductResult.getCode() != R.FAIL) {
+        if (deductResult == null || deductResult.getCode() == R.FAIL) {
             String errorMsg = (deductResult == null) ? "RPC Timeout" : deductResult.getMsg();
             log.warn("库存扣减失败: {}", errorMsg);
             // 抛出业务异常，触发事务回滚

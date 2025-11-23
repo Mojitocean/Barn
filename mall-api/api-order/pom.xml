@@ -24,6 +24,7 @@
             <groupId>com.barn</groupId>
             <artifactId>common-core</artifactId>
             <version>${revision}</version>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

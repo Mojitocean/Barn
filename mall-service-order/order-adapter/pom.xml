@@ -23,11 +23,30 @@
             <groupId>com.barn</groupId>
             <artifactId>common-core</artifactId>
             <version>${revision}</version>
+            <optional>true</optional>
+        </dependency>
+        <!--knife4j文档-->
+<!--        <dependency>-->
+<!--            <groupId>com.github.xiaoymin</groupId>-->
+<!--            <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>-->
+<!--            <version>${knife4j.version}</version>-->
+<!--        </dependency>-->
+        <!--swagger-->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+            <version>${springdoc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${springdoc.version}</version>
         </dependency>
         <dependency>
             <groupId>com.barn</groupId>
             <artifactId>common-dubbo</artifactId>
             <version>${revision}</version>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.barn</groupId>

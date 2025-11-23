@@ -3,6 +3,8 @@ package com.barn.order.adapter.web;
 import com.api.barn.order.dto.OrderCreateDTO;
 import com.barn.core.domain.R;
 import com.barn.order.app.service.OrderAppService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2025/11/22
  * @description TODO
  */
+@Tag(name = "订单服务")
 @RestController
 @RequestMapping("/order")
 public class OrderController {
@@ -26,6 +29,7 @@ public class OrderController {
     @Autowired
     private OrderAppService orderAppService;
 
+    @Operation(summary = "创建订单")
     @PostMapping("/create")
     public R<String> create(@RequestBody OrderCreateDTO createDTO) {
         // 这里可以做简单的参数格式校验 (@Valid)

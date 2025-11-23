@@ -19,6 +19,7 @@ spring:
   config:
     import:
       - optional:nacos:common
+      - optional:nacos:common-redis
       - optional:nacos:mall-product
 
 # dubbo配置
