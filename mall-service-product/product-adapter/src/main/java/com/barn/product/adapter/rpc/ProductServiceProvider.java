@@ -4,7 +4,7 @@ import com.barn.api.product.dto.SkuInfoDTO;
 import com.barn.api.product.dto.StockDeductionDTO;
 import com.barn.api.product.service.ProductServiceApi;
 import com.barn.core.domain.R;
-import com.barn.core.exception.ServerException;
+import com.barn.core.exception.BizException;
 import com.barn.product.domain.entity.Sku;
 import com.barn.product.domain.repo.ProductRepository;
 import com.barn.product.domain.service.StockDomainService;
@@ -54,12 +54,11 @@ public class ProductServiceProvider implements ProductServiceApi {
     }
 
     @Override
-    @Transactional(rollbackFor = ServerException.class)
+    @Transactional(rollbackFor = BizException.class)
     public R<Boolean> deductStock(List<StockDeductionDTO> deductionList) {
         try {
             // 转换参数 List -> Map<SkuId, Count>
-            Map<Long, Integer> skuCountMap = deductionList.stream()
-                    .collect(Collectors.toMap(StockDeductionDTO::getSkuId, StockDeductionDTO::getCount));
+            Map<Long, Integer> skuCountMap = deductionList.stream().collect(Collectors.toMap(StockDeductionDTO::getSkuId, StockDeductionDTO::getCount));
             // 调用领域服务执行核心逻辑
             stockDomainService.deductStock(skuCountMap);
             return R.ok(true);

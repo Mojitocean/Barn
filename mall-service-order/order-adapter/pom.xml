@@ -17,20 +17,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.barn</groupId>
             <artifactId>common-core</artifactId>
             <version>${revision}</version>
-            <optional>true</optional>
         </dependency>
-        <!--knife4j文档-->
-<!--        <dependency>-->
-<!--            <groupId>com.github.xiaoymin</groupId>-->
-<!--            <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>-->
-<!--            <version>${knife4j.version}</version>-->
-<!--        </dependency>-->
         <!--swagger-->
         <dependency>
             <groupId>org.springdoc</groupId>
@@ -46,7 +38,6 @@
             <groupId>com.barn</groupId>
             <artifactId>common-dubbo</artifactId>
             <version>${revision}</version>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.barn</groupId>

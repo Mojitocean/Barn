@@ -64,7 +64,7 @@ public class RedisUtil {
     /**
      * 判断是否允许通过限流
      *
-     * @param key          限流Key（建议包含业务维度，如 user:123, api:/login）
+     * @param key          限流Key（建议包含业务维度，如 mapper:123, api:/login）
      * @param limit        限流阈值（在窗口期内允许的请求数）
      * @param windowMillis 窗口大小（毫秒）
      * @return true=允许请求；false=被限流

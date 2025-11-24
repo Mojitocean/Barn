@@ -1,6 +1,6 @@
 package com.barn.core.utils;
 
-import com.barn.core.exception.ServerException;
+import com.barn.core.exception.BizException;
 import lombok.extern.log4j.Log4j2;
 import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -55,7 +55,7 @@ public class HttpUtil {
                 log.info("--doGet--请求失败，返回CODE：{}", response.code());
             return response.body().string();
         } catch (Exception e) {
-            throw new ServerException("--doGet--请求异常，异常信息：" + e.getMessage());
+            throw new BizException("--doGet--请求异常，异常信息：" + e.getMessage());
         }
     }
 
@@ -73,7 +73,7 @@ public class HttpUtil {
                 log.info("--doGetBody--请求失败，返回CODE：{}", response.code());
             return response.body().bytes();
         } catch (Exception e) {
-            throw new ServerException("--doGetBody--请求异常，异常信息：" + e.getMessage());
+            throw new BizException("--doGetBody--请求异常，异常信息：" + e.getMessage());
         }
     }
 
@@ -96,7 +96,7 @@ public class HttpUtil {
                 log.info("--doGetParams--请求失败，返回CODE：{}", response.code());
             return response.body().string();
         } catch (Exception e) {
-            throw new ServerException("--doGetParams--请求异常，异常信息：" + e.getMessage());
+            throw new BizException("--doGetParams--请求异常，异常信息：" + e.getMessage());
         }
     }
 
@@ -119,7 +119,7 @@ public class HttpUtil {
                 log.info("--doGetParamsHeaders--请求失败，返回CODE：{}", response.code());
             return response.body().string();
         } catch (Exception e) {
-            throw new ServerException("--doGetParamsHeaders--请求异常，异常信息：" + e.getMessage());
+            throw new BizException("--doGetParamsHeaders--请求异常，异常信息：" + e.getMessage());
         }
     }
 
@@ -152,11 +152,11 @@ public class HttpUtil {
         try (Response response = CLIENT.newCall(request).execute()) {
             if (!response.isSuccessful()) {
                 log.info("--doGetParamsWithHeaders--请求失败，返回CODE：{}", response.code());
-                throw new ServerException("--doGetParamsWithHeaders--请求失败，返回CODE：" + response.code());
+                throw new BizException("--doGetParamsWithHeaders--请求失败，返回CODE：" + response.code());
             }
             return response.body().string();
         } catch (Exception e) {
-            throw new ServerException("--doGetParamsWithHeaders--请求异常，异常信息：" + e.getMessage());
+            throw new BizException("--doGetParamsWithHeaders--请求异常，异常信息：" + e.getMessage());
         }
     }
 
@@ -179,7 +179,7 @@ public class HttpUtil {
                 log.info("--doGetParamsSSL--请求失败，返回CODE：{}", response.code());
             return response.body().string();
         } catch (Exception e) {
-            throw new ServerException("--doGetParamsSSL--请求异常，异常信息：" + e.getMessage());
+            throw new BizException("--doGetParamsSSL--请求异常，异常信息：" + e.getMessage());
         }
     }
 
@@ -203,11 +203,11 @@ public class HttpUtil {
         // 执行请求
         try (Response response = CLIENT.newCall(request).execute()) {
             if (!response.isSuccessful())
-                throw new ServerException("--doGetBody--请求失败，返回CODE：" + response.code());
+                throw new BizException("--doGetBody--请求失败，返回CODE：" + response.code());
             // 返回响应体的内容
             return response.body().string();
         } catch (Exception e) {
-            throw new ServerException("--doGetBody--请求异常，异常信息：" + e.getMessage());
+            throw new BizException("--doGetBody--请求异常，异常信息：" + e.getMessage());
         }
     }
 
@@ -235,7 +235,7 @@ public class HttpUtil {
             // 返回响应体的内容
             return response.body().string();
         } catch (Exception e) {
-            throw new ServerException("--doGetBodySSL--请求异常，异常信息：" + e.getMessage());
+            throw new BizException("--doGetBodySSL--请求异常，异常信息：" + e.getMessage());
         }
     }
 
@@ -255,7 +255,7 @@ public class HttpUtil {
                 log.info("--doPostJson--请求失败，返回CODE：{}", response);
             return response.body().string();
         } catch (Exception e) {
-            throw new ServerException("--doPostJson--请求异常，异常信息：" + e.getMessage());
+            throw new BizException("--doPostJson--请求异常，异常信息：" + e.getMessage());
         }
     }
 
@@ -300,7 +300,7 @@ public class HttpUtil {
                 log.info("--doPostJsonHeaders--请求失败，返回CODE：{}", response.code());
             return response.body().string();
         } catch (Exception e) {
-            throw new ServerException("--doPostJsonHeaders--请求异常，异常信息：" + e.getMessage());
+            throw new BizException("--doPostJsonHeaders--请求异常，异常信息：" + e.getMessage());
         }
     }
 
@@ -320,7 +320,7 @@ public class HttpUtil {
                 log.info("--doPostJsonHeadersSSL--请求失败，返回CODE：{}", response.code());
             return response.body().string();
         } catch (Exception e) {
-            throw new ServerException("--doPostJsonHeadersSSL--请求异常，异常信息：" + e.getMessage());
+            throw new BizException("--doPostJsonHeadersSSL--请求异常，异常信息：" + e.getMessage());
         }
     }
 
@@ -348,7 +348,7 @@ public class HttpUtil {
                 log.info("--doPostFormData--请求失败，返回CODE：{}", response.code());
             return response.body().string();
         } catch (Exception e) {
-            throw new ServerException("--doPostFormData--请求异常，异常信息：" + e.getMessage());
+            throw new BizException("--doPostFormData--请求异常，异常信息：" + e.getMessage());
         }
     }
 
@@ -393,7 +393,7 @@ public class HttpUtil {
                 log.info("--doPostFormDataSSL--请求失败，返回CODE：{}", response.code());
             return response.body().string();
         } catch (Exception e) {
-            throw new ServerException("--doPostFormDataSSL--请求异常，异常信息：" + e.getMessage());
+            throw new BizException("--doPostFormDataSSL--请求异常，异常信息：" + e.getMessage());
         }
     }
 

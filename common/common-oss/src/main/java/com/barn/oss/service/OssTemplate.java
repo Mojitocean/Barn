@@ -1,7 +1,7 @@
 package com.barn.oss.service;
 
 
-import com.barn.core.exception.ServerException;
+import com.barn.core.exception.BizException;
 import com.barn.core.utils.DateUtil;
 import com.barn.core.utils.IdGenUtil;
 import com.barn.core.utils.StringUtil;
@@ -117,7 +117,7 @@ public class OssTemplate implements InitializingBean {
             s3Client.putObject(request, RequestBody.fromBytes(file.getBytes()));
             return buildAttachment(objectKey, file);
         } catch (IOException e) {
-            throw new ServerException("上传文件失败", e);
+            throw new BizException("上传文件失败", e);
         }
     }
 

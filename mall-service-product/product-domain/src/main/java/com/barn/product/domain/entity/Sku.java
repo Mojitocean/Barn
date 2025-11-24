@@ -1,7 +1,7 @@
 package com.barn.product.domain.entity;
 
 
-import com.barn.core.exception.ServerException;
+import com.barn.core.exception.BizException;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -35,7 +35,7 @@ public class Sku {
      */
     public void checkStock(Integer count) {
         if (this.stock < count) {
-            throw new ServerException("商品[" + this.skuName + "]库存不足，当前剩余:" + this.stock);
+            throw new BizException("商品[" + this.skuName + "]库存不足，当前剩余:" + this.stock);
         }
     }
 

@@ -1,6 +1,8 @@
 package com.barn.redis.config;
 
 
+import com.barn.redis.config.properties.RedissonProperties;
+import com.barn.redis.handler.KeyPrefixHandler;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -8,8 +10,6 @@ import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
-import com.barn.redis.config.properties.RedissonProperties;
-import com.barn.redis.handler.KeyPrefixHandler;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.client.codec.StringCodec;

@@ -11,20 +11,6 @@
 
     <artifactId>api-product</artifactId>
     <packaging>jar</packaging>
-    <description>[商品服务 Dubbo 接口]</description>
+    <description>[商品服务]</description>
 
-    <dependencies>
-        <!-- lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>com.barn</groupId>
-            <artifactId>common-core</artifactId>
-            <version>${revision}</version>
-            <optional>true</optional>
-        </dependency>
-    </dependencies>
 </project>

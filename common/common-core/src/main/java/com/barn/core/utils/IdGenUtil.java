@@ -1,7 +1,7 @@
 package com.barn.core.utils;
 
 
-import com.barn.core.exception.ServerException;
+import com.barn.core.exception.BizException;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -67,7 +67,7 @@ public class IdGenUtil {
         long timestamp = currentTimeMillis();
 
         if (timestamp < lastTimestamp) {
-            throw new ServerException("系统时钟回拨，拒绝生成分布式ID");
+            throw new BizException("系统时钟回拨，拒绝生成分布式ID");
         }
 
         if (timestamp == lastTimestamp) {

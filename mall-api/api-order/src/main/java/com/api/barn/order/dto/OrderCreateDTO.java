@@ -10,6 +10,7 @@ import java.util.List;
  * packageName com.api.order.dto
  * 下单请求 DTO (Data Transfer Object)
  * 注意：这里只包含创建订单所需的最基本参数，不包含业务逻辑
+ * 支持订单拆分
  *
  * @author mj
  * @className OrderCreateDTO
@@ -20,43 +21,48 @@ import java.util.List;
 public class OrderCreateDTO implements Serializable {
 
     /**
-     * 用户ID (来自网关解析)
+     * 支付总金额，用于支付服务校验
+     */
+    private BigDecimal totalPayAmount;
+
+    /**
+     * 下单用户ID
      */
     private Long userId;
 
     /**
-     * 用户名
+     * 订单分组列表：用于将购物车商品按收货地址进行分组。
+     * 最终一个 ShippingGroup 对应数据库中的一笔 Order 记录。
      */
-    private String userName;
+    private List<ShippingGroup> shippingGroups;
 
     /**
-     * 收货地址ID
+     * 【内部类】运输分组
      */
-    private Long addressId;
+    @Data
+    public static class ShippingGroup implements Serializable {
+        /**
+         * 必填：收货地址ID
+         */
+        private Long addressId;
+        /**
+         * 该地址下的所有商品项
+         */
+        private List<OrderItemDTO> items;
+    }
 
     /**
-     * 支付方式 (例如：WECHAT, ALIPAY)
+     * 【内部类】订单明细项
      */
-    private String paymentType;
-
-    /**
-     * 购买商品列表
-     */
-    private List<OrderItemDTO> items;
-
     @Data
     public static class OrderItemDTO implements Serializable {
         /**
-         * SKU ID (库存单元ID)
+         * 商品 SKU ID
          */
         private Long skuId;
         /**
          * 购买数量
          */
         private Integer count;
-        /**
-         * 下单时的商品价格 (前端传入仅做参考，后端需重新校验)
-         */
-        private BigDecimal price;
     }
 }

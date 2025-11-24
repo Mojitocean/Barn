@@ -17,13 +17,13 @@ import java.nio.file.AccessDeniedException;
  * packageName com.barn.core.exception
  *
  * @author mj
- * @className ServerExceptionHandler
+ * @className BizExceptionHandler
  * @date 2025/5/27
  * @description TODO
  */
 @Log4j2
 @RestControllerAdvice
-public class ServerExceptionHandler {
+public class BizExceptionHandler {
     /**
      * 处理自定义异常
      * <p>
@@ -33,8 +33,8 @@ public class ServerExceptionHandler {
      * @param ex ServerException类型的异常对象，包含了异常的详细信息
      * @return 返回一个封装了错误信息的R对象，包括异常的状态码和错误消息
      */
-    @ExceptionHandler(ServerException.class)
-    public R<String> handleException(ServerException ex) {
+    @ExceptionHandler(BizException.class)
+    public R<String> handleException(BizException ex) {
         log.error(ex.getMsg());
         return R.error(ex.getCode(), ex.getMsg());
     }

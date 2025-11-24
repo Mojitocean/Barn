@@ -17,6 +17,7 @@
         <module>api-order</module>
         <module>api-product</module>
         <module>api-user</module>
+        <module>api-settlement</module>
     </modules>
 
     <properties>
@@ -24,5 +25,17 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
+    <dependencies>
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.barn</groupId>
+            <artifactId>common-core</artifactId>
+            <version>${revision}</version>
+        </dependency>
+    </dependencies>
 </project>
